@@ -13,7 +13,7 @@
                     </span>
                 </font></font></td>
             </tr>
-        
+
             <tr>
                 <td>Contraseña: </td>
                 <td><input type="password" id="pass" name="pass" placeholder="contraseña" value="<?php echo $user['pass'];?>"/></td>
@@ -25,7 +25,7 @@
                     </span>
                 </font></font></td>
             </tr>
-            
+
             <tr>
                 <td>Nombre: </td>
                 <td><input type="text" id="nombre" name="nombre" placeholder="nombre" value="<?php echo $user['name'];?>"/></td>
@@ -37,7 +37,7 @@
                     </span>
                 </font></font></td>
             </tr>
-            
+
             <tr>
                 <td>DNI: </td>
                 <td><input type="text" id= "DNI" name="DNI" placeholder="DNI" value="<?php echo $user['dni'];?>"/></td>
@@ -49,7 +49,7 @@
                     </span>
                 </font></font></td>
             </tr>
-            
+
             <tr>
                 <td>Sexo: </td>
                 <td>
@@ -58,12 +58,12 @@
                     ?>
                         <input type="radio" id="sexo" name="sexo" placeholder="sexo" value="Hombre" checked/>Hombre
                         <input type="radio" id="sexo" name="sexo" placeholder="sexo" value="Mujer"/>Mujer
-                    <?php    
+                    <?php
                         }else{
                     ?>
                         <input type="radio" id="sexo" name="sexo" placeholder="sexo" value="Hombre"/>Hombre
                         <input type="radio" id="sexo" name="sexo" placeholder="sexo" value="Mujer" checked/>Mujer
-                    <?php   
+                    <?php
                         }
                     ?>
                 </td>
@@ -75,7 +75,7 @@
                     </span>
                 </font></font></td>
             </tr>
-            
+
             <tr>
                 <td>Fecha de nacimiento: </td>
                 <td><input id="fecha" type="text" name="fecha_nacimiento" placeholder="fecha de nacimiento" value="<?php echo $user['birthdate'];?>"/></td>
@@ -87,7 +87,7 @@
                     </span>
                 </font></font></td>
             </tr>
-            
+
             <tr>
                 <td>Edad: </td>
                 <td><input type="text" id="edad" name="edad" placeholder="edad" value="<?php echo $user['age'];?>"/></td>
@@ -98,9 +98,9 @@
                         ?>
                     </span>
                 </font></font></td>
-                
+
             </tr>
-            
+
             <tr>
                 <td>Pais: </td>
                 <td><select id="pais" name="pais" placeholder="pais">
@@ -134,7 +134,7 @@
                     </span>
                 </font></font></td>
             </tr>
-            
+
             <tr>
                 <td>Idioma: </td>
                 <?php
@@ -198,7 +198,7 @@
                     </span>
                 </font></font></td>
             </tr>
-            
+
             <tr>
                 <td>Observaciones: </td>
                 <td><textarea cols="30" rows="5" id="observaciones" name="observaciones" placeholder="observaciones"><?php echo $user['comment'];?></textarea></td>
@@ -210,7 +210,7 @@
                     </span>
                 </font></font></td>
             </tr>
-            
+
             <tr>
                 <td>Aficiones: </td>
                 <?php
@@ -262,7 +262,7 @@
                     </span>
                 </font></font></td>
             </tr>
-            
+
             <tr>
                 <td><input type="submit" name="update" id="update"/></td>
                 <td align="right"><a href="index.php?page=controller_user&op=list">Volver</a></td>
