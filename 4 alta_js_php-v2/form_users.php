@@ -115,7 +115,7 @@
 		</p>
         <p>
 			<label for="idioma">Idioma</label>
-			<select size="1" cols="35" id="idioma[]" name="idioma[]" placeholder="idioma" >
+			<select size="1" cols="35" id="idioma" name="idioma" placeholder="idioma" >
 					<option value="Español">Español</option>
 					<option value="Ingles">Ingles</option>
 					<option value="Portugues">Portugues</option>

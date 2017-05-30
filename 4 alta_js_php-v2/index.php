@@ -32,8 +32,7 @@
 				$error_idioma = $errores['idioma'];
 				$error_type = $errores['type'];
 			}
-
-			if (!$error['resultado']) {
+			if (!$error['resultado']) { 
 				//debug($_POST);
 				//exit();
 

@@ -65,9 +65,9 @@ function validate_user(){
 	if($error == null){
 		return $return=array('resultado'=>false , 'error'=>$error,'datos'=>$resultado);
 
+	}else{
+		return $return=array('resultado'=>true,'error'=>$error,'datos'=>$resultado);
 	}
-	return $return=array('resultado'=>true,'error'=>$error,'datos'=>$resultado);
-
 };
 
 function validatemail($email){

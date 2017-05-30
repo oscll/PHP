@@ -1,6 +1,5 @@
 <?php
 function validate_user(){
-	$error='';
 	$filtro = array(
 		'imdbID' => array(
 			'filter'=>FILTER_VALIDATE_REGEXP,
@@ -41,6 +40,10 @@ function validate_user(){
 			'filter'=>FILTER_CALLBACK,
 			'options'=>'v_type'
 		),
+		'idioma' => array(
+			'filter'=>FILTER_VALIDATE_REGEXP,
+			'options'=>array('regexp'=>'/^.{2,30}\s*$/')
+		),
 		'type' => array(
 			'filter'=>FILTER_CALLBACK,
 			'options'=>'v_type'
@@ -69,13 +72,11 @@ function validate_user(){
 		$error['idioma']='El direccion debe contener de 2 a 50 caracteres';
 	}if(!$resultado['type']){
 		$error['type']='El direccion debe contener de 2 a 50 caracteres';
-		}
-	if($error == null){
-		return $return=array('resultado'=>false , 'error'=>$error,'datos'=>$resultado);
-
 	}
-	return $return=array('resultado'=>true,'error'=>$error,'datos'=>$resultado);
-
+		if((empty($error))){
+			return $return=array('resultado'=>false , 'error'=>$error,'datos'=>$resultado);
+		}
+		return $return=array('resultado'=>true,'error'=>$error,'datos'=>$resultado);
 };
 
 function validatemail($email){
