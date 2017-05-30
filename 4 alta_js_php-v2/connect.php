@@ -1,12 +1,12 @@
 <?php
 	class connect{
 		public static function con(){
-			$host = 'localhost';
+				$host = 'localhost';
     		$user = "root";
     		$pass = "OI";
-    		$db = "usuarios";
+    		$db = "movie";
     		$port = 3306;
-    		$tabla="usuario";
+    		$tabla="movies";
 
     		$conexion = mysqli_connect($host, $user, $pass, $db, $port)or die(mysql_error());
 			return $conexion;

@@ -38,7 +38,7 @@ function validate_user(){
 		),
 		'aficion' => array(
 			'filter'=>FILTER_CALLBACK,
-			'options'=>'v_type'
+			'options'=>'v_aficion'
 		),
 		'idioma' => array(
 			'filter'=>FILTER_VALIDATE_REGEXP,
@@ -114,13 +114,21 @@ function EsDNI($dni){
 	}
 	return false;
 }
-function v_type($texto){
+function v_aficion($texto){
 			if(!isset($texto) || empty($texto)){
 					return true;
 			}else{
 					return false;
 			}
 }
+function v_type($texto){
+			if(($texto === "serie")||($texto === "movie")){
+					return $texto;
+			}else{
+					return false;
+			}
+}
+
 
 
 

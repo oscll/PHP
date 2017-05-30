@@ -1,6 +1,5 @@
 <?php
 		include("functions.inc.php");
-		//include("validate_users.php");
 		session_start();
 
 		$error = false;
@@ -32,7 +31,7 @@
 				$error_idioma = $errores['idioma'];
 				$error_type = $errores['type'];
 			}
-			if (!$error['resultado']) { 
+			if (!$error['resultado']) {
 				//debug($_POST);
 				//exit();
 

@@ -126,8 +126,8 @@
 		</p>
 		<p>
 			<label for="type">Type</label>
-			<input type="radio" name="type" value="0" checked> Serie
-		  <input type="radio" name="type" value="1"> Movie<br>
+			<input type="radio" name="type" value="serie" checked> Serie
+		  <input type="radio" name="type" value="movie"> Movie<br>
 			<span id="e_type" class="styerror">
 				<?php
 					if ($error_type != "")
