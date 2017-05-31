@@ -1,7 +1,7 @@
 <form method="post" name="formusers" id="formusers" onsubmit="true" action="<?php echo $action ?>"> <!-- return validate_user();-->
   <p>
     <label for="imdbID">imdbID</label>
-    <input name="imdbID" id="imdbID" type="text" placeholder="imdbID" size="30%" value="<?php echo $_POST?$_POST['imdbID']:""; ?>" />
+    <input name="imdbID" id="imdbID" type="text" placeholder="imdbID" size="30%" value="<?php echo $item?$item['imdbID']:""; ?>" <?php echo $readonly?"readonly":"" ?>/>
     <span id="e_imdbID" class="styerror"></span>
     <?php
       if ($error_imdbID != "")
@@ -10,7 +10,7 @@
   </p>
   <p>
     <label for="titulo">titulo</label>
-    <input name="titulo" id="titulo" type="text" placeholder="titulo" size="30%" value="<?php echo $_POST?$_POST['titulo']:""; ?>" />
+    <input name="titulo" id="titulo" type="text" placeholder="titulo" size="30%" value="<?php echo $item?$item['titulo']:""; ?>" />
     <span id="e_titulo" class="styerror"></span>
     <?php
       if ($error_titulo != "")
@@ -19,7 +19,7 @@
   </p>
       <p>
     <label for="director">director</label>
-    <input name="director" id="director" type="text" placeholder="director" size="30%" value="<?php echo $_POST?$_POST['director']:""; ?>" />
+    <input name="director" id="director" type="text" placeholder="director" size="30%" value="<?php echo $item?$item['director']:""; ?>" />
     <span id="e_director" class="styerror"></span>
     <?php
       if ($error_director != "")
@@ -28,7 +28,7 @@
   </p>
       <p>
     <label for="actors">actors</label>
-    <input name="actors" id="actors" type="text" placeholder="actors" size="30%" value="<?php echo $_POST?$_POST['actors']:""; ?>" />
+    <input name="actors" id="actors" type="text" placeholder="actors" size="30%" value="<?php echo $item?$item['actors']:""; ?>" />
     <span id="e_actors" class="styerror"></span>
     <?php
       if ($error_actors != "")
@@ -37,7 +37,7 @@
   </p>
   <p>
     <label for="fecha_lanzamiento">Fecha de lanzamiento</label>
-    <input name="fecha_lanzamiento" id="fecha_lanzamiento" type="text" size="30%" placeholder="fecha de lanzamiento" value="<?php echo $_POST?$_POST['fecha_lanzamiento']:""; ?>" readonly="readonly"/>
+    <input name="fecha_lanzamiento" id="fecha_lanzamiento" type="text" size="30%" placeholder="fecha de lanzamiento" value="<?php echo $item?$item['fecha_lanzamiento']:""; ?>" readonly="readonly"/>
     <span id="fecha_lanzamiento" class="styerror"></span>
     <?php
       if ($error_fecha_lanzamiento != "")
@@ -47,7 +47,7 @@
   <p>
     <label for="plot">plot</label>
     <!-- <input name="plot" id="plot" type="text" placeholder="plot" value="<?php// echo $_POST?$_POST['plot']:""; ?>" /> -->
-    <textarea cols="35" rows="5" id="plot" name="plot" placeholder="plot" ><?php echo $_POST?$_POST['plot']:""; ?></textarea>
+    <textarea cols="35" rows="5" id="plot" name="plot" placeholder="plot" ><?php echo $item?$item['plot']:""; ?></textarea>
     <span id="e_plot" class="styerror"></span>
     <?php
       if ($error_plot != "")
@@ -56,7 +56,7 @@
   </p>
       <p>
     <label for="email">Email</label>
-    <input name="email" id="email" type="text" placeholder="email" size="30%" value="<?php echo $_POST?$_POST['email']:""; ?>" />
+    <input name="email" id="email" type="text" placeholder="email" size="30%" value="<?php echo $item?$item['email']:""; ?>" />
     <span id="e_email" class="styerror"></span>
     <?php
       if ($error_email != "")
@@ -65,7 +65,7 @@
   </p>
   <p>
     <label for="website">website</label>
-    <input name="website" id="website" type="text" placeholder="website" size="30%" value="<?php echo $_POST?$_POST['website']:""; ?>" />
+    <input name="website" id="website" type="text" placeholder="website" size="30%" value="<?php echo $item?$item['website']:""; ?>" />
     <span id="e_website" class="styerror"></span>
     <?php
       if ($error_website != "")
@@ -74,14 +74,14 @@
   </p>
       <p>
     <label for="aficion[]">Tematica</label>
-    <input type="checkbox" id= "aficion[]" name="aficion[]" placeholder= "Comedia" value="Comedia"<?php $key=array_search("Comedia",$_POST['aficion'],true);
+    <input type="checkbox" id= "aficion[]" name="aficion[]" placeholder= "Comedia" value="Comedia"<?php $key=array_search("Comedia",$item['aficion'],true);
     if($key===0||$key===1||$key===2||$key===3){echo checked;}?> />Comedia
     <input type="checkbox" id= "aficion[]" name="aficion[]" placeholder= "Ciencia Ficcion" value="Ciencia Ficcio"
-    <?php $key=array_search("Ciencia Ficcio",$_POST['aficion'],true);
+    <?php $key=array_search("Ciencia Ficcio",$item['aficion'],true);
     if($key===0||$key===1||$key===2||$key===3){echo checked;}?>/>Ciencia Ficcion
-    <input type="checkbox" id= "aficion[]" name="aficion[]" placeholder= "Drama" value="Drama" <?php $key=array_search("Drama",$_POST['aficion'],true);
+    <input type="checkbox" id= "aficion[]" name="aficion[]" placeholder= "Drama" value="Drama" <?php $key=array_search("Drama",$item['aficion'],true);
     if($key===0||$key===1||$key===2||$key===3){echo checked;}?>/>Drama
-    <input type="checkbox" id= "aficion[]" name="aficion[]" placeholder= "Documental" value="Documental"<?php $key=array_search("Documental",$_POST['aficion'],true);
+    <input type="checkbox" id= "aficion[]" name="aficion[]" placeholder= "Documental" value="Documental"<?php $key=array_search("Documental",$item['aficion'],true);
     if($key===0||$key===1||$key===2||$key===3){echo checked;}?>/>Documental
     <span id="e_aficion[]" class="styerror"></span>
     <?php
@@ -92,18 +92,18 @@
       <p>
     <label for="idioma">Idioma</label>
     <select size="1" cols="35" id="idioma" name="idioma" placeholder="idioma" >
-        <option value="Español">Español</option>
-        <option value="Ingles">Ingles</option>
-        <option value="Portugues">Portugues</option>
-        <option value="Frances">Frances</option>
-        <option value="Aleman">Aleman</option>
+        <option value="Spain" <?php if($item['idioma']==="Spain"){echo "selected";} ?> >Spain</option>
+        <option value="Ingles" <?php if($item['idioma']==="Ingles"){echo "selected";} ?> >Ingles</option>
+        <option value="Portugues" <?php if($item['idioma']==="Portugues"){echo "selected";} ?> >Portugues</option>
+        <option value="Frances" <?php if($item['idioma']==="Frances"){echo "selected";} ?> >Frances</option>
+        <option value="Aleman" <?php if($item['idioma']==="Aleman"){echo "selected";} ?> >Aleman</option>
     </select>
     <span id="e_idioma" class="styerror"></span>
   </p>
   <p>
     <label for="type">Type</label>
-    <input type="radio" name="type" value="serie" checked> Serie
-    <input type="radio" name="type" value="movie"> Movie<br>
+    <input type="radio" name="type" value="serie" <?php if($item['type']==="serie"){echo "checked";}?> > Serie
+    <input type="radio" name="type" value="movie" <?php if($item['type']==="movie"){echo "checked";}?> > Movie<br>
     <span id="e_type" class="styerror">
       <?php
         if ($error_type != "")

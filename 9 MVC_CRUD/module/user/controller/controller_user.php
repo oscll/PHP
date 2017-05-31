@@ -88,11 +88,27 @@
 
             if (isset($_POST['update'])){
                 //$check=validate();
+                $error = validate_user();
+          			if(!empty($error['error'])){
+          				$errores=$error['error'];
+          				$error_imdbID = $errores['imdbID'];
+          				$error_titulo = $errores['titulo'];
+          				$error_director = $errores['director'];
+          				$error_actors = $errores['actors'];
+          				$error_fecha_lanzamiento = $errores['fecha_lanzamiento'];
+          				$error_plot = $errores['plot'];
+          				$error_email = $errores['email'];
+          				$error_website = $errores['website'];
+          				$error_aficion = $errores['aficion'];
+          				$error_idioma = $errores['idioma'];
+          				$error_type = $errores['type'];
+          			}
+                $check=(!$error['resultado']);
                 if ($check){
                     $_SESSION['user']=$_POST;
                     try{
                         $daouser = new DAOUser();
-    		            $rdo = $daouser->update_user($_POST);
+    		                $rdo = $daouser->update_film($_POST);
                     }catch (Exception $e){
                         $callback = 'index.php?page=503';
         			    die('<script>window.location.href="'.$callback .'";</script>');
@@ -111,7 +127,7 @@
 
             try{
                 $daouser = new DAOUser();
-            	$rdo = $daouser->select_user($_GET['id']);
+            	$rdo = $daouser->select_film($_GET['id']);
             	$user=get_object_vars($rdo);
             }catch (Exception $e){
                 $callback = 'index.php?page=503';

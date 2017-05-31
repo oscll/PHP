@@ -64,7 +64,6 @@
 
         	$sql = " UPDATE movies SET titulo='$titulo', director='$director', actors='$actors', fecha_lanzamiento='$fecha_lanzamiento', plot='$plot', email='$email',"
         		. " website='$website', aficion='$aficiones', idioma='$idioma', type='$type' WHERE imdbID='$imdbID'";
-
             $conexion = connect::con();
             $res = mysqli_query($conexion, $sql);
             connect::close($conexion);

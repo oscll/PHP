@@ -2,6 +2,7 @@
   <?php
       $action="index.php?page=controller_user&op=create";
       $submit="create";
+      $item=$_POST;
       include("module/user/view/form.php")
    ?>
     <!-- <form autocomplete="on" method="post" name="alta_user" id="alta_user" onsubmit="return validate();" action="index.php?page=controller_user&op=create">
