@@ -145,7 +145,7 @@
         case 'read':
             try{
                 $daouser = new DAOUser();
-            	$rdo = $daouser->select_user($_GET['id']);
+            	$rdo = $daouser->select_film($_GET['id']);
             	$user=get_object_vars($rdo);
             }catch (Exception $e){
                 $callback = 'index.php?page=503';
@@ -163,7 +163,7 @@
             if (isset($_POST['delete'])){
                 try{
                     $daouser = new DAOUser();
-                	$rdo = $daouser->delete_user($_GET['id']);
+                	$rdo = $daouser->delete_film($_GET['id']);
                 }catch (Exception $e){
                     $callback = 'index.php?page=503';
     			    die('<script>window.location.href="'.$callback .'";</script>');
