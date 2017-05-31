@@ -6,7 +6,7 @@
         case 'list':
             try{
                 $daouser = new DAOUser();
-            	$rdo = $daouser->select_all_user();
+            	$rdo = $daouser->select_all_films();
             }catch (Exception $e){
                 $callback = 'index.php?page=503';
 			    die('<script>window.location.href="'.$callback .'";</script>');
