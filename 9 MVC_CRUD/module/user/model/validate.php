@@ -1,161 +1,130 @@
 <?php
-    function validate_usuario($texto){
-        $reg="/^[a-zA-Z]*$/";
-        return preg_match($reg,$texto);
-    }
+function validate_user(){
+	$filtro = array(
+		'imdbID' => array(
+			'filter'=>FILTER_VALIDATE_REGEXP,
+			'options'=>array('regexp'=>'/^([a-z]{2}[0-9]{7})*$/')
+		),
+		'titulo' => array(
+			'filter'=>FILTER_VALIDATE_REGEXP,
+			'options'=>array('regexp'=>'/^.{2,30}\s*$/')
+		),
 
-    function validate_password($texto){
-        $reg = "/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/";
-        return preg_match($reg,$texto);
-    }
+		'director' => array(
+			'filter'=>FILTER_VALIDATE_REGEXP,
+			'options'=>array('regexp'=>'/^.{2,30}\s*$/')
+		),
 
-    function validate_nombre($texto){
-        $reg="/^[a-zA-Z]*$/";
-        return preg_match($reg,$texto);
-    }
+		'actors' => array(
+			'filter'=>FILTER_VALIDATE_REGEXP,
+			'options'=>array('regexp'=>'/^.{2,200}\s*$/')
+		),
+		'fecha_lanzamiento' => array(
+			'filter'=>FILTER_VALIDATE_REGEXP,
+			'options'=>array('regexp'=>'/\d{2}.\d{2}.\d{4}$/')
 
-    function validate_DNI($dni){
-        $reg="/^[0-9]{8}[A-Z]$/";
-        return preg_match($reg,$dni);
-    }
+		),
+		'plot' => array(
+			'filter'=>FILTER_VALIDATE_REGEXP,
+			'options'=>array('regexp'=>'/^.{2,200}\s*$/')
+		),
+		'email' => array(
+			'filter'=>FILTER_CALLBACK,
+			'options'=>'validatemail'
+		),
+		'website' => array(
+			'filter'=>FILTER_CALLBACK,
+			'options'=>'validateurl'
+		),
+		'aficion' => array(
+			'filter'=>FILTER_CALLBACK,
+			'options'=>'v_aficion'
+		),
+		'idioma' => array(
+			'filter'=>FILTER_VALIDATE_REGEXP,
+			'options'=>array('regexp'=>'/^.{2,30}\s*$/')
+		),
+		'type' => array(
+			'filter'=>FILTER_CALLBACK,
+			'options'=>'v_type'
+		)
+	);
+	$resultado=filter_input_array(INPUT_POST,$filtro);
+	if(!$resultado['imdbID']){
+		$error['imdbID']='El imdbID esta formado por 2 letras y 7 numeros';
+	}if(!$resultado['titulo']){
+		$error['titulo']='El titulo no es valido ';
+	}if(!$resultado['director']){
+		$error['director']='El director no es valido';
+	}if(!$resultado['actors']){
+		$error['actors']='Los actores no son validos ';
+	}if(!$resultado['fecha_lanzamiento']){
+		$error['fecha_lanzamiento']='Fecha de lanzamiento: debe elegir una fecha';
+	}if(!$resultado['plot']){
+			$error['plot']='La descripcion debe contener de 2 a 200 caracteres ';
+	}if(!$resultado['email']){
+		$error['email']='El email debe contener de 5 a 50 caracteres y debe ser un email valido';
+	}if(!$resultado['website']){
+		$error['website']='El direccion debe contener de 2 a 50 caracteres';
+	}if(!$resultado['aficion']){
+		$error['aficion']='El direccion debe contener de 2 a 50 caracteres';
+	}if(!$resultado['idioma']){
+		$error['idioma']='El direccion debe contener de 2 a 50 caracteres';
+	}if(!$resultado['type']){
+		$error['type']='El direccion debe contener de 2 a 50 caracteres';
+	}
+		if((empty($error))){
+			return $return=array('resultado'=>false , 'error'=>$error,'datos'=>$resultado);
+		}
+		return $return=array('resultado'=>true,'error'=>$error,'datos'=>$resultado);
+};
 
-    function validate_sexo($texto){
-        if(!isset($texto) || empty($texto)){
-            return false;
-        }else{
-            return true;
-        }
-    }
+function validatemail($email){
+		$email = filter_var($email, FILTER_SANITIZE_EMAIL);
+		if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+			if(filter_var($email, FILTER_VALIDATE_REGEXP, array('options' => array('regexp'=> '/^.{5,50}$/')))){
+				return $email;
+			}
+		}
+		return false;
+}
 
-    function validate_fecha($texto){
-        if(empty($texto)){
-            return false;
-        }else{
-            return true;
-        }
-    }
+function validateurl($url){
+	if (!filter_var($url, FILTER_VALIDATE_URL) === false) {
+			return $url;
+	} else {
+		return false;
+	}
+}
+function EsDNI($dni){
+	if(strlen($dni)===9){
+			$regexp="([0-9]{8})([A-Z])";
+			 if(ereg($regexp, $dni)){
+				$array_dni = str_split($dni);
+				$numbers = $array_dni[0].$array_dni[1].$array_dni[2].$array_dni[3].$array_dni[4].$array_dni[5].$array_dni[6].$array_dni[7];
+				$resto = $numbers%23;
+				$letra = $array_dni[8];
+				$rule = "TRWAGMYFPDXBNJZSQVHLCKET";
+				$letras = str_split($rule);
 
-    function validate_edad($texto){
-        $reg="/[0-9]{1,2}$/";
-        return preg_match($reg,$texto);
-    }
-
-    function validate_pais($texto){
-        if(!isset($texto) || empty($texto)){
-            return false;
-        }else{
-            return true;
-        }
-    }
-
-    function validate_idioma($texto){
-        if(!isset($texto) || empty($texto)){
-            return false;
-        }else{
-            return true;
-        }
-    }
-
-    function validate_observaciones($texto){
-        if(empty($texto)){
-            return false;
-        }else{
-            return true;
-        }
-    }
-
-    function validate_aficion($texto){
-        if(!isset($texto) || empty($texto)){
-            return false;
-        }else{
-            return true;
-        }
-    }
-
-  function validate(){
-        $check=true;
-
-        $v_usuario=$_POST['usuario'];
-        $v_password=$_POST['pass'];
-        $v_nombre=$_POST['nombre'];
-        $v_DNI=$_POST['DNI'];
-        $v_sexo=$_POST['sexo'];
-        $v_fecha_nacimiento=$_POST['fecha'];
-        $v_edad=$_POST['edad'];
-        $v_idioma=$_POST['idioma[]'];
-        $v_observaciones=$_POST['observaciones'];
-        $v_aficion=$_POST['aficion[]'];
-
-        $r_usuario=validate_usuario(v_usuario);
-        $r_password=validate_password(v_password);
-        $r_nombre=validate_nombre(v_nombre);
-        $r_DNI=validate_DNI(v_DNI);
-        $r_sexo=validate_sexo(v_sexo);
-        $r_fecha_nacimiento=validate_fecha(v_fecha_nacimiento);
-        $r_edad=validate_edad(v_edad);
-        $r_idioma=validate_idioma(v_idioma);
-        $r_observaciones=validate_observaciones(v_observaciones);
-        $r_aficion=validate_aficion(v_aficion);
-
-        if($r_usuario !== 1){
-            $error_usuario = " * El usuario introducido no es valido";
-            $check=false;
-        }else{
-            $error_usuario = "";
-        }
-        if($r_password !== 1){
-            $error_pass = " * La contraseña introducida no es valida";
-            $check=false;
-        }else{
-            $error_pass = "";
-        }
-        if($r_nombre !== 1){
-            $error_nombre = " * El nombre introducido no es valido";
-            $check=false;
-        }else{
-            $error_nombre = "";
-        }
-        if($r_DNI !== 1){
-            $error_DNI = " * El DNI introducido no es valido";
-            $check=false;
-        }else{
-            $error_DNI = "";
-        }
-        if(!$r_sexo){
-            $error_sexo = " * No has seleccionado ningun genero";
-            $check=false;
-        }else{
-            $error_sexo = "";
-        }
-        if(!$r_fecha_nacimiento){
-            $error_fecha_nacimiento = " * No has introducido ninguna fecha";
-            $check=false;
-        }else{
-            $error_fecha_nacimiento = "";
-        }
-        if($r_edad !== 1){
-            $error_edad = " * La edad introducida no es valida";
-            $check=false;
-        }else{
-            $error_edad = "";
-        }
-        if(!$r_idioma){
-            $error_idioma = " * No has seleccionado ningun idioma";
-            $check=false;
-        }else{
-            $error_idioma = "";
-        }
-        if(!$r_observaciones){
-            $error_observaciones = " * El texto introducido no es valido";
-            $check=false;
-        }else{
-            $error_observaciones = "";
-        }
-        if(!$r_aficion){
-            $error_aficion = " * No has seleccionado ninguna aficion";
-            $check=false;
-        }else{
-            $error_aficion = "";
-        }
-        return $check;
-    }
+				if($letra===$letras[$resto]){
+					return $dni;
+				}
+			 }
+	}
+	return false;
+}
+function v_aficion($texto){
+			if(!isset($texto) || empty($texto)){
+					return true;
+			}else{
+					return false;
+			}
+}
+function v_type($texto){
+			if(($texto === "serie")||($texto === "movie")){
+					return $texto;
+			}else{
+					return false;
+			}
+}

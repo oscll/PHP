@@ -17,7 +17,7 @@
 		$error_type = false;
 		if (isset($_POST['alta'])) {
 			$error = validate_user();
-			if($error['error']!= null){
+			if(!empty($error['error'])){
 				$errores=$error['error'];
 				$error_imdbID = $errores['imdbID'];
 				$error_titulo = $errores['titulo'];

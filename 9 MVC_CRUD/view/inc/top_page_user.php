@@ -7,16 +7,15 @@
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
     	<script type="text/javascript">
-        	$(function() {
-        		$('#fecha').datepicker({
-        			dateFormat: 'dd/mm/yy', 
-        			changeMonth: true, 
-        			changeYear: true, 
-        			yearRange: '1900:2016',
-        			onSelect: function(selectedDate) {
-        			}
-        		});
-        	});
+      $(function() {
+        $('#fecha_lanzamiento').datepicker({
+        dateFormat: 'dd/mm/yy',
+        changeMonth: true,
+        changeYear: true,
+        maxDate: '0Y-18Y',
+        yearRange: '-64Y:'
+      });
+    });
 	    </script>
 	    <link href="view/css/style.css" rel="stylesheet" type="text/css" />
 	    <script src="module/user/model/validate_user.js"></script>

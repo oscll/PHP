@@ -1,79 +1,79 @@
 <?php
     include("model/connect.php");
-    
+
 	class DAOUser{
-		function insert_user($datos){
-			$user=$datos[usuario];
-        	$passwd=$datos[pass];
-        	$name=$datos[nombre];
-        	$dni=$datos[DNI];
-        	$sex=$datos[sexo];
-        	$birthdate=$datos[fecha_nacimiento];
-        	$age=$datos[edad];
-        	$country=$datos[pais];
-        	foreach ($datos[idioma] as $indice) {
-        	    $language=$language."$indice:";
-        	}
-        	$comment=$datos[observaciones];
-        	foreach ($datos[aficion] as $indice) {
-        	    $hobby=$hobby."$indice:";
-        	}
-        	$sql = " INSERT INTO usuario (user, pass, name, dni, sex, birthdate, age, country, language, comment, hobby)"
-        		. " VALUES ('$user', '$passwd', '$name', '$dni', '$sex', '$birthdate', '$age', '$country', '$language', '$comment', '$hobby')";
-            
+		function insert_film($user){
+            $aficiones="";
+            foreach ($user['aficion'] as $key => $value) {
+                $aficiones.=$value.":";
+            }
+            $imdbID=$user['imdbID'];
+            $titulo=$user['titulo'];
+            $director=$user['director'];
+            $actors=$user['actors'];
+            $fecha_lanzamiento=$user['fecha_lanzamiento'];
+            $plot=$user['plot'];
+            $email=$user['email'];
+            $website=$user['website'];
+            $aficion=$aficiones;
+            $idioma=$user['idioma'];
+            $type=$user['type'];
+
+            $sql = " INSERT INTO movies (imdbID, titulo, director, actors, fecha_lanzamiento, plot, email, website, aficion, idioma, type)"
+            . " VALUES ('$imdbID', '$titulo', '$director', '$actors', '$fecha_lanzamiento', '$plot', '$email', '$website', '$aficion', '$idioma', '$type')";
             $conexion = connect::con();
             $res = mysqli_query($conexion, $sql);
             connect::close($conexion);
 			return $res;
 		}
-		
-		function select_all_user(){
-			$sql = "SELECT * FROM usuario ORDER BY user ASC";
-			
+
+		function select_all_films(){
+			$sql = "SELECT * FROM movies ORDER BY titulo ASC";
+
 			$conexion = connect::con();
             $res = mysqli_query($conexion, $sql);
             connect::close($conexion);
             return $res;
 		}
-		
-		function select_user($user){
-			$sql = "SELECT * FROM usuario WHERE user='$user'";
-			
+
+		function select_film($user){
+			$sql = "SELECT * FROM movies WHERE imdbID='$user'";
+
 			$conexion = connect::con();
             $res = mysqli_query($conexion, $sql)->fetch_object();
             connect::close($conexion);
             return $res;
 		}
-		
-		function update_user($datos){
-			$user=$datos[usuario];
-        	$passwd=$datos[pass];
-        	$name=$datos[nombre];
-        	$dni=$datos[DNI];
-        	$sex=$datos[sexo];
-        	$birthdate=$datos[fecha_nacimiento];
-        	$age=$datos[edad];
-        	$country=$datos[pais];
-        	foreach ($datos[idioma] as $indice) {
-        	    $language=$language."$indice:";
-        	}
-        	$comment=$datos[observaciones];
-        	foreach ($datos[aficion] as $indice) {
-        	    $hobby=$hobby."$indice:";
-        	}
-        	
-        	$sql = " UPDATE usuario SET pass='$passwd', name='$name', dni='$dni', sex='$sex', birthdate='$birthdate', age='$age',"
-        		. " country='$country', language='$language', comment='$comment', hobby='$hobby' WHERE user='$user'";
-            
+
+		function update_film($user){
+      $aficiones="";
+      foreach ($user['aficion'] as $key => $value) {
+          $aficiones.=$value.":";
+      }
+      $imdbID=$user['imdbID'];
+      $titulo=$user['titulo'];
+      $director=$user['director'];
+      $actors=$user['actors'];
+      $fecha_lanzamiento=$user['fecha_lanzamiento'];
+      $plot=$user['plot'];
+      $email=$user['email'];
+      $website=$user['website'];
+      $aficion=$aficiones;
+      $idioma=$user['idioma'];
+      $type=$user['type'];
+
+        	$sql = " UPDATE movies SET titulo='$titulo', director='$director', actors='$actors', fecha_lanzamiento='$fecha_lanzamiento', plot='$plot', email='$email',"
+        		. " website='$website', aficion='$aficiones', idioma='$idioma', type='$type' WHERE imdbID='$imdbID'";
+
             $conexion = connect::con();
             $res = mysqli_query($conexion, $sql);
             connect::close($conexion);
 			return $res;
 		}
-		
-		function delete_user($user){
-			$sql = "DELETE FROM usuario WHERE user='$user'";
-			
+
+		function delete_film($user){
+			$sql = "DELETE FROM movies WHERE imdbID='$user'";
+
 			$conexion = connect::con();
             $res = mysqli_query($conexion, $sql);
             connect::close($conexion);
