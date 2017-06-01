@@ -3,101 +3,101 @@
     <p>
     <table border='2'>
         <tr>
-            <td>Usuario: </td>
+            <td>imdbID: </td>
             <td>
                 <?php
-                    echo $user[user];
+                    echo $user['imdbID'];
                 ?>
             </td>
         </tr>
-    
+
         <tr>
-            <td>Contraseña: </td>
+            <td>Titulo: </td>
             <td>
                 <?php
-                    echo $user['pass'];
+                    echo $user['titulo'];
                 ?>
             </td>
         </tr>
-        
+
         <tr>
-            <td>Nombre: </td>
+            <td>Director: </td>
             <td>
                 <?php
-                    echo $user['name'];
+                    echo $user['director'];
                 ?>
             </td>
         </tr>
-        
+
         <tr>
-            <td>DNI: </td>
+            <td>Actors: </td>
             <td>
                 <?php
-                    echo $user['dni'];
+                    echo $user['actors'];
                 ?>
             </td>
         </tr>
-        
+
         <tr>
-            <td>Sexo: </td>
+            <td>Fecha de lanzamiento: </td>
             <td>
                 <?php
-                    echo $user['sex'];
+                    echo $user['fecha_lanzamiento'];
                 ?>
             </td>
         </tr>
-        
+
         <tr>
-            <td>Fecha de nacimiento: </td>
+            <td>Plot: </td>
             <td>
                 <?php
-                    echo $user['birthdate'];
+                    echo $user['plot'];
                 ?>
             </td>
         </tr>
-        
+
         <tr>
-            <td>Edad: </td>
+            <td>Email: </td>
             <td>
                 <?php
-                    echo $user['age'];
+                    echo $user['email'];
                 ?>
             </td>
-            
+
         </tr>
-        
+
         <tr>
-            <td>Pais: </td>
+            <td>Website: </td>
             <td>
                 <?php
-                    echo $user['country'];
+                    echo $user['website'];
                 ?>
             </td>
         </tr>
-        
+
+        <tr>
+            <td>Aficion: </td>
+            <td>
+                <?php
+                    echo $user['aficion'];
+                ?>
+            </td>
+        </tr>
+
         <tr>
             <td>Idioma: </td>
             <td>
                 <?php
-                    echo $user['language'];
+                    echo $user['idioma'];
                 ?>
             </td>
         </tr>
-        
+
         <tr>
-            <td>Observaciones: </td>
+            <td>Type: </td>
             <td>
                 <?php
-                    echo $user['comment'];
-                ?>
-            </td>
-        </tr>
-        
-        <tr>
-            <td>Aficiones: </td>
-            <td>
-                <?php
-                    echo $user['hobby'];
+                    echo $user['type'];
                 ?>
             </td>
         </tr>
