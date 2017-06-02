@@ -1,4 +1,4 @@
-<form method="post" name="formusers" id="formusers" onsubmit="true" action="<?php echo $action ?>"> <!-- return validate_user();-->
+<form method="post" name="formusers" id="formusers" onsubmit="return validate();" action="<?php echo $action ?>"> <!-- return validate_user();-->
   <p>
     <label for="imdbID">imdbID</label>
     <input name="imdbID" id="imdbID" type="text" placeholder="imdbID" size="30%" value="<?php echo $item?$item['imdbID']:""; ?>" <?php echo $readonly?"readonly":"" ?>/>
@@ -38,7 +38,7 @@
   <p>
     <label for="fecha_lanzamiento">Fecha de lanzamiento</label>
     <input name="fecha_lanzamiento" id="fecha_lanzamiento" type="text" size="30%" placeholder="fecha de lanzamiento" value="<?php echo $item?$item['fecha_lanzamiento']:""; ?>" readonly="readonly"/>
-    <span id="fecha_lanzamiento" class="styerror"></span>
+    <span id="e_fecha_lanzamiento" class="styerror"></span>
     <?php
       if ($error_fecha_lanzamiento != "")
             print ("<BR><SPAN CLASS='styerror' color: #ff0000;>" . "* ".$error_fecha_lanzamiento . "</SPAN>");
@@ -46,7 +46,6 @@
   </p>
   <p>
     <label for="plot">plot</label>
-    <!-- <input name="plot" id="plot" type="text" placeholder="plot" value="<?php// echo $_POST?$_POST['plot']:""; ?>" /> -->
     <textarea cols="35" rows="5" id="plot" name="plot" placeholder="plot" ><?php echo $item?$item['plot']:""; ?></textarea>
     <span id="e_plot" class="styerror"></span>
     <?php
@@ -102,8 +101,8 @@
   </p>
   <p>
     <label for="type">Type</label>
-    <input type="radio" name="type" value="serie" <?php if($item['type']==="serie"){echo "checked";}?> > Serie
-    <input type="radio" name="type" value="movie" <?php if($item['type']==="movie"){echo "checked";}?> > Movie<br>
+    <input type="radio" id="type" checked name="type" value="serie" <?php if($item['type']==="serie"){echo "checked";}?> > Serie
+    <input type="radio" id="type" name="type" value="movie" <?php if($item['type']==="movie"){echo "checked";}?> > Movie<br>
     <span id="e_type" class="styerror">
       <?php
         if ($error_type != "")

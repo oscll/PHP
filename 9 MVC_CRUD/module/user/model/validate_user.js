@@ -1,6 +1,7 @@
-function validate_usuario(texto){
+
+function validate_imdbID(texto){
     if (texto.length > 0){
-        var reg=/^[a-zA-Z]*$/;
+        var reg=/^([a-z]{2}[0-9]{7})*$/;
         return reg.test(texto);
     }
     return false;
@@ -14,81 +15,57 @@ function validate_password(texto){
     return false;
 }
 
-function validate_nombre(texto){
+function validate_titulo(texto){
     if (texto.length > 0){
-        var reg=/^[a-zA-Z]*$/;
+        var reg=/^.{2,30}\s*$/;
         return reg.test(texto);
     }
     return false;
 }
 
-function validate_DNI(dni){
-    
-  var numero = dni.substr(0,dni.length-1);
-  var let = dni.substr(dni.length-1,1);
-  numero = numero % 23;
-  var letra='TRWAGMYFPDXBNJZSQVHLCKET';
-  letra=letra.substring(numero,numero+1);
-  if (letra!=let){
-      return false;
-  }else{
-      return true;
-  }
-}
-
-function validate_sexo(texto){
-    var i;
-    var ok=0;
-    for(i=0; i<texto.length;i++){
-        if(texto[i].checked){
-            ok=1
-        }
-    }
- 
-    if(ok==1){
-        return true;
-    }
-    if(ok==0){
-        return false;
-    }
-}
-
-function validate_fecha(texto){
+function validate_director(texto){
     if (texto.length > 0){
-        return true;
-    }
-    return false;
-}
-
-function validate_edad(texto){
-    if (texto.length > 0){
-        var reg=/^[0-9]{1,2}$/;
+        var reg=/^.{2,30}\s*$/;
         return reg.test(texto);
     }
     return false;
 }
 
-function validate_pais(texto){
+function validate_actors(texto){
     if (texto.length > 0){
-        return true;
+        var reg=/^.{2,200}\s*$/;
+        return reg.test(texto);
     }
     return false;
 }
 
-function validate_idioma(array){
-    var check=false;
-    for ( var i = 0, l = array.options.length, o; i < l; i++ ){
-        o = array.options[i];
-        if ( o.selected ){
-            check= true;
-        }
-    }
-    return check;
+function validate_fecha_lanzamiento(texto){
+  if (texto.length > 0){
+           return true;
+       }
+       return false;
 }
 
-function validate_observaciones(texto){
-    if (texto.length > 0){
-        return true;
+function validate_email(email) {
+    if (email.length > 0) {
+        var regexp = /^[A-Z0-9._%+-]+@(?:[A-Z0-9-]+.)+[A-Z]{2,4}$/i;
+        return regexp.test(email);
+    }
+    return false;
+}
+
+function validate_website(website) {
+    if (website.length > 0) {
+        var regexp = /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/i;
+        return regexp.test(website);
+    }
+    return false;
+}
+function validate_type(texto) {
+  console.log(texto);
+    if (texto.length > 0) {
+        var regexp = /^([m][o][v][i][e])|([s][e][r][i][e])$/i;
+        return regexp.test(texto);
     }
     return false;
 }
@@ -101,7 +78,7 @@ function validate_aficion(array){
             ok=1
         }
     }
- 
+
     if(ok==1){
         return true;
     }
@@ -111,89 +88,83 @@ function validate_aficion(array){
 }
 
 function validate(){
-    var check=true
-    
-    var v_usuario=document.getElementById('usuario').value;
-    var v_password=document.getElementById('pass').value;
-    var v_nombre=document.getElementById('nombre').value;
-    var v_DNI=document.getElementById('DNI').value;
-    var v_sexo=document.getElementsByName('sexo');
-    var v_fecha_nacimiento=document.getElementById('fecha').value;
-    var v_edad=document.getElementById('edad').value;
-    var v_idioma=document.getElementById('idioma[]');
-    var v_observaciones=document.getElementById('observaciones').value;
+
+    var check=true;
+
+    var v_imdbID=document.getElementById('imdbID').value;
+    var v_titulo=document.getElementById('titulo').value;
+    var v_director=document.getElementById('director').value;
+    var v_actors=document.getElementById('actors').value;
+    var v_fecha_lanzamiento=document.getElementById('fecha_lanzamiento').value;
+    var v_plot=document.getElementById('plot').value.trim().length;
+    var v_email=document.getElementById('email').value;
+    var v_website=document.getElementById('website').value;
     var v_aficion=document.getElementsByName('aficion[]');
-    
-    var r_usuario=validate_usuario(v_usuario);
-    var r_password=validate_password(v_password);
-    var r_nombre=validate_nombre(v_nombre);
-    var r_DNI=validate_DNI(v_DNI);
-    var r_sexo=validate_sexo(v_sexo);
-    var r_fecha_nacimiento=validate_fecha(v_fecha_nacimiento);
-    var r_edad=validate_edad(v_edad);
-    var r_idioma=validate_idioma(v_idioma);
-    var r_observaciones=validate_observaciones(v_observaciones);
+
+    var r_imdbID=validate_imdbID(v_imdbID);
+    var r_titulo=validate_titulo(v_titulo);
+    var r_director=validate_director(v_director);
+    var r_actors=validate_actors(v_actors);
+    var r_fecha_lanzamiento=validate_fecha_lanzamiento(v_fecha_lanzamiento);
+    var r_plot=v_plot;
+    var r_email=validate_email(v_email);
+    var r_website=validate_website(v_website);
+    var r_type=validate_type(v_type);
     var r_aficion=validate_aficion(v_aficion);
-    
-    if(!r_usuario){
-        document.getElementById('error_usuario').innerHTML = " * El usuario introducido no es valido";
+
+    if(!r_imdbID){
+        document.getElementById('e_imdbID').innerHTML = " * El imdbID introducido no es valido";
         check=false;
     }else{
-        document.getElementById('error_usuario').innerHTML = "";
+        document.getElementById('e_imdbID').innerHTML = "";
     }
-    if(!r_password){
-        document.getElementById('error_pass').innerHTML = " * La contraseña introducida no es valida";
+    if(!r_titulo){
+        document.getElementById('e_titulo').innerHTML = " * La titulo introducida no es valida";
         check=false;
     }else{
-        document.getElementById('error_pass').innerHTML = "";
+        document.getElementById('e_titulo').innerHTML = "";
     }
-    if(!r_nombre){
-        document.getElementById('error_nombre').innerHTML = " * El nombre introducido no es valido";
+    if(!r_director){
+        document.getElementById('e_director').innerHTML = " * El director introducido no es valido";
         check=false;
     }else{
-        document.getElementById('error_nombre').innerHTML = "";
+        document.getElementById('e_director').innerHTML = "";
     }
-    if(!r_DNI){
-        document.getElementById('error_DNI').innerHTML = " * El DNI introducido no es valido";
+    if(!r_actors){
+        document.getElementById('e_actors').innerHTML = " * Los actores no son validos ";
         check=false;
     }else{
-        document.getElementById('error_DNI').innerHTML = "";
+        document.getElementById('e_actors').innerHTML = "";
     }
-    if(!r_sexo){
-        document.getElementById('error_sexo').innerHTML = " * No has seleccionado ningun genero";
+    if(!r_fecha_lanzamiento){
+        document.getElementById('e_fecha_lanzamiento').innerHTML = " * La fecha introducida no es valida";
         check=false;
     }else{
-        document.getElementById('error_sexo').innerHTML = "";
+        document.getElementById('e_fecha_lanzamiento').innerHTML = "";
     }
-    if(!r_fecha_nacimiento){
-        document.getElementById('error_fecha_nacimiento').innerHTML = " * No has introducido ninguna fecha";
+    if(!r_plot){
+        document.getElementById('e_plot').innerHTML = " *  El plot introducido no es valido";
         check=false;
     }else{
-        document.getElementById('error_fecha_nacimiento').innerHTML = "";
+        document.getElementById('e_plot').innerHTML = "";
     }
-    if(!r_edad){
-        document.getElementById('error_edad').innerHTML = " * La edad introducida no es valida";
+    if(!r_email){
+        document.getElementById('e_email').innerHTML = " * El email introducido no es valido";
         check=false;
     }else{
-        document.getElementById('error_edad').innerHTML = "";
+        document.getElementById('e_email').innerHTML = "";
     }
-    if(!r_idioma){
-        document.getElementById('error_idioma').innerHTML = " * No has seleccionado ningun idioma";
+    if(!r_website){
+        document.getElementById('e_website').innerHTML = " * La web introducida no es valida";
         check=false;
     }else{
-        document.getElementById('error_idioma').innerHTML = "";
-    }
-    if(!r_observaciones){
-        document.getElementById('error_observaciones').innerHTML = " * El texto introducido no es valido";
-        check=false;
-    }else{
-        document.getElementById('error_observaciones').innerHTML = "";
+        document.getElementById('e_website').innerHTML = "";
     }
     if(!r_aficion){
-        document.getElementById('error_aficion').innerHTML = " * No has seleccionado ninguna aficion";
+        document.getElementById('e_aficion[]').innerHTML = " * Debes seleccionar una casilla como minimo";
         check=false;
     }else{
-        document.getElementById('error_aficion').innerHTML = "";
+        document.getElementById('e_aficion[]').innerHTML = "";
     }
-    return check;
+        return check;
 }

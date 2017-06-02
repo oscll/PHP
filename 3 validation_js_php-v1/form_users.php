@@ -22,7 +22,7 @@
 </head>
 <body >
 	<h1> Alta Usuario </h1>
-	<form method="post" name="formusers" id="formusers" onsubmit="true" action="index.php"> <!-- return validate_user();-->
+	<form method="post" name="formusers" id="formusers" onsubmit="return validate_user();" action="index.php"> <!-- return validate_user();-->
 		<p>
 			<label for="dni">Dni</label>
 			<input name="dni" id="dni" type="text" placeholder="dni" value="<?php echo $_POST?$_POST['dni']:""; ?>" />

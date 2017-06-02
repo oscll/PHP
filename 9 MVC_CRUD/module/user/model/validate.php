@@ -65,13 +65,13 @@ function validate_user(){
 	}if(!$resultado['email']){
 		$error['email']='El email debe contener de 5 a 50 caracteres y debe ser un email valido';
 	}if(!$resultado['website']){
-		$error['website']='El direccion debe contener de 2 a 50 caracteres';
+		$error['website']='La direccion url no es valida';
 	}if(!$resultado['aficion']){
-		$error['aficion']='El direccion debe contener de 2 a 50 caracteres';
+		$error['aficion']='Debes marcar como minimo una aficion';
 	}if(!$resultado['idioma']){
-		$error['idioma']='El direccion debe contener de 2 a 50 caracteres';
+		$error['idioma']='Tienes que elegir un idioma';
 	}if(!$resultado['type']){
-		$error['type']='El direccion debe contener de 2 a 50 caracteres';
+		$error['type']='Selecciona un type ';
 	}
 		if((empty($error))){
 			return $return=array('resultado'=>false , 'error'=>$error,'datos'=>$resultado);

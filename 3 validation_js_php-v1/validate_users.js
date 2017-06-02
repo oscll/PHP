@@ -44,7 +44,7 @@ function validate_email(email) {
 }
 function validate_password(password) {
     if (password.length > 0) {
-        var regexp = /^[a-zA-Z0-9]*$/;
+        var regexp = /^(?:(\w[\w\d+.-]+):\/\/)?(?:(.+?):(.+)@)?(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|[^#:\/\?\s]+)(?::(\d+))?\/?(\/(?:[^#\/\?\s]+\/)*[^#\/\?\s]+\/?)?(?:\?((?:[^#=\/\s]+=[^&;#\/\s]+[&;]?)+))?(?:#(.+))?$/;
         return regexp.test(password);
     }
     return false;
