@@ -72,8 +72,7 @@
 
 		function delete_film($item){
 			$sql = "DELETE FROM movies WHERE imdbID='$item'";
-      echo $sql;
-      die();
+
 			$conexion = connect::con();
             $res = mysqli_query($conexion, $sql);
             connect::close($conexion);

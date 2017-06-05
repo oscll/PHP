@@ -71,8 +71,6 @@
             			$callback = 'index.php?page=controller_user&op=list';
         			    die('<script>window.location.href="'.$callback .'";</script>');
             		}else{
-                  echo "false sfsd f";
-                  die();
             			$callback = 'index.php?page=503';
     			        die('<script>window.location.href="'.$callback .'";</script>');
             		}
@@ -87,7 +85,7 @@
             $check = true;
 
             if (isset($_POST['update'])){
-                //$check=validate();
+
                 $error = validate_user();
           			if(!empty($error['error'])){
           				$errores=$error['error'];
@@ -108,7 +106,7 @@
                     $_SESSION['user']=$_POST;
                     try{
                         $daouser = new DAOUser();
-    		                $rdo = $daouser->update_film($_POST);
+    		                $rdo = $daouser->update_film($_SESSION['user']);
                     }catch (Exception $e){
                         $callback = 'index.php?page=503';
         			    die('<script>window.location.href="'.$callback .'";</script>');
@@ -127,7 +125,15 @@
 
             try{
                 $daouser = new DAOUser();
-            	$rdo = $daouser->select_film($_GET['id']);
+                if(isset($_GET['id'])){
+                  $rdo = $daouser->select_film($_GET['id']);//list
+                } elseif (isset($_POST['imdbID'])) {
+                  $rdo = $daouser->select_film($_POST['imdbID']);//Formulario
+                }else {
+                  echo "Not found imdbID";
+                  $callback = 'index.php?page=503';
+                  die('<script>window.location.href="'.$callback .'";</script>');
+                }
             	$user=get_object_vars($rdo);
             }catch (Exception $e){
                 $callback = 'index.php?page=503';
@@ -161,12 +167,8 @@
 
         case 'delete':
             if (isset($_POST['delete'])){
-                print_r ($_POST);
-                die();
                 try{
                     $daouser = new DAOUser();
-                    echo "kasdfjsadlkfj";
-                    die();
                 	  $rdo = $daouser->delete_film($_GET['id']);
                 }catch (Exception $e){
                     $callback = 'index.php?page=503';

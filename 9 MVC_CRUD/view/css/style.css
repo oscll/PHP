@@ -169,3 +169,233 @@ table{
   color: #ffffff;
   text-decoration: none;
 }
+/*Formulario */
+ol,ul {
+  	list-style:none;
+  	margin:0px;
+  	padding:0px;
+  }
+  blockquote,q {
+  	quotes:none;
+  }
+  blockquote:before,blockquote:after,q:before,q:after {
+  	content:'';
+  	content:none;
+  }
+  table {
+  	border-collapse:collapse;
+  	border-spacing:0;
+  }
+
+  /* start editing from here */
+  a {
+  	text-decoration:none;
+  }
+  .txt-rt {
+  	text-align:right;
+  }/* text align right */
+  .txt-lt {
+  	text-align:left;
+  }/* text align left */
+  .txt-center {
+  	text-align:center;
+  /*-- W3Layouts --*/
+  }/* text align center */
+  .float-rt {
+  	float:right;
+  }/* float right */
+  .float-lt {
+  	float:left;
+  }/* float left */
+  .clear {
+  	clear:both;
+  }/* clear float */
+  .pos-relative {
+  	position:relative;
+  }/* Position Relative */
+  .pos-absolute {
+  	position:absolute;
+  }/* Position Absolute */
+  .vertical-base {
+  	vertical-align:baseline;
+  }/* vertical align baseline */
+  .vertical-top {
+  	vertical-align:top;
+  }/* vertical align top */
+  nav.vertical ul li {
+  	display:block;
+  }/* vertical menu */
+  nav.horizontal ul li {
+  	display: inline-block;
+  }/* horizontal menu */
+  img {
+  	max-width:100%;
+  }
+
+  h1.header-agileits {
+      text-align: center;
+      font-size: 50px;
+      font-weight: normal;
+      padding-top: 35px;
+      text-transform: uppercase;
+      color: #fff;
+      letter-spacing: 8px;
+  }
+  p.header-agileits {
+  	font-size: 17px;
+      font-weight: normal;
+      line-height: 35px;
+      margin-bottom: 45px;
+      color: #dcdcdc;
+      text-align: center;
+  }
+  .content-w3ls {
+      width: 85 %;
+      margin: 20px auto 50px;
+      background-color: rgba(3, 9, 12, 0.36);
+      padding: 55px 50px;
+  }
+  .form-control {
+      padding-bottom: 35px;
+  }
+  .form-control:nth-child(9) {
+  	padding-bottom:0;
+  	padding-top: 16px;
+  }
+  span {
+      color: red;
+  }
+  label.header {
+      font-size: 20px;
+      width: 300px;
+      font-weight: 500;
+      color: #fff;
+      text-align: justify;
+      letter-spacing: 2px;
+      text-transform: capitalize;
+      display: inline-block;
+      margin-bottom: 10px;
+
+  	float: left;
+      width: 40%;
+  }
+  input#imdbID,input#email,input#titulo,input#director, input#actors, input#fecha_lanzamiento, input#website,textarea#plot {
+  	font-family: 'Exo 2', sans-serif;
+      border: 1px solid #fff;
+      color: #fff;
+      text-align: justify;
+      outline: none;
+      letter-spacing: 1px;
+      font-size: 15px;
+      font-weight: normal;
+      background-color: rgba(82, 56, 76, 0.15);
+  	float: right;
+  }
+  #idioma{
+    font-family: 'Exo 2', sans-serif;
+      border: 1px solid #fff;
+      color: #fff;
+      text-align: justify;
+      outline: none;
+      letter-spacing: 1px;
+      font-size: 15px;
+      font-weight: normal;
+      background-color: rgba(82, 56, 76, 0.15);
+      height: 45px;
+      width: 54.5%;
+      padding: 0 15px;
+    float: right;
+  }
+  input#imdbID,input#email,input#titulo,input#director, input#actors, input#fecha_lanzamiento, input#website {
+  	height:45px;
+  	padding:0 15px;
+  	width:54.5%;
+  }
+
+  textarea#plot {
+  	height:150px;
+  	padding:15px;
+  	width:54.5%;
+  }
+  input::-webkit-input-placeholder {
+  color:#c1c1c1!important;
+  }
+
+  input:-moz-placeholder { /* Firefox 18- */
+  color:#c1c1c1!important;
+  }
+
+  input::-moz-placeholder {  /* Firefox 19+ */
+  color:#c1c1c1!important;
+  }
+
+  input:-ms-input-placeholder {
+  color:#c1c1c1!important;
+  }
+  textarea::-webkit-input-placeholder {
+  color:#c1c1c1!important;
+  }
+
+  textarea::-moz-placeholder { /* Firefox 18- */
+  color:#c1c1c1!important;
+  }
+
+  textarea::-moz-placeholder {  /* Firefox 19+ */
+  color:#c1c1c1!important;
+  }
+
+  textarea::-ms-input-placeholder {
+  color:#c1c1c1!important;
+  }
+  /*-- responsive design --*/
+  @media (max-width: 1366px) {
+  .content-w3ls {
+      width: 45%;
+  }
+  .agile-w3ls {
+      padding-left: 326px;
+  }
+  }
+  @media (max-width: 320px) {
+  h1.header-agileits {
+      font-size: 25px;
+      padding-top: 18px;
+      letter-spacing: 5px;
+  }
+  input#imdbID, input#email, input#titulo, input#director, input#actors, input#fecha_lanzamiento, input#website {
+      height: 40px;
+      padding: 0 10px;
+  }
+  .content-w3ls {
+      width: 85%;
+      padding: 16px 16px;
+  }
+  input#imdbID, input#email, input#titulo, input#director, input#actors, input#fecha_lanzamiento, input#website, textarea#plot {
+      width: 91%;
+  	font-size: 14px;
+  }
+  textarea#plot {
+      height: 100px;
+      padding: 10px;
+  }
+  }
+  [type="submit"] {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    width: 100%;
+    background:#CC6666;
+    border-radius:5px;
+    border:0;
+    cursor:pointer;
+    color:white;
+    font-size:24px;
+    padding-top:10px;
+    padding-bottom:10px;
+    transition: all 0.3s;
+    margin-top:-4px;
+    font-weight:700;
+  }
+  [type="submit"]:hover { background:#ff0000; }
+  div.aficiones{
+    padding-left: 40%;
+    padding-bottom: 3%;
+  }

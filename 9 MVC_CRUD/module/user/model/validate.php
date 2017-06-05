@@ -96,27 +96,9 @@ function validateurl($url){
 		return false;
 	}
 }
-function EsDNI($dni){
-	if(strlen($dni)===9){
-			$regexp="([0-9]{8})([A-Z])";
-			 if(ereg($regexp, $dni)){
-				$array_dni = str_split($dni);
-				$numbers = $array_dni[0].$array_dni[1].$array_dni[2].$array_dni[3].$array_dni[4].$array_dni[5].$array_dni[6].$array_dni[7];
-				$resto = $numbers%23;
-				$letra = $array_dni[8];
-				$rule = "TRWAGMYFPDXBNJZSQVHLCKET";
-				$letras = str_split($rule);
-
-				if($letra===$letras[$resto]){
-					return $dni;
-				}
-			 }
-	}
-	return false;
-}
 function v_aficion($texto){
 			if(!isset($texto) || empty($texto)){
-					return true;
+					return $texto;
 			}else{
 					return false;
 			}
