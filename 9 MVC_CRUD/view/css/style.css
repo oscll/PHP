@@ -1,21 +1,27 @@
+
 .error { color: red;
          font-family: arial;
          font-size: 10pt;
          fontstyle:italic;
 }
 body{
-    background-color:#F0F0FF;
-    background-image: url(../img/background.png);
+    background-color:#f4d39b;
+    background-image: url(../img/coupon-1828620_640.png);
     background-attachment: fixed;
-    background-repeat:no-repeat;
+    background-size: 10% 25%;
+    background-repeat:repeat;
+    margin: 0;
 }
+
+
+
 h1{
     font-size: 32pt;
 }
 #wrapper {
 	width:800px;
 	margin:auto;
-	background-color:#FFFFFF;	
+	background-color:#FFFFFF;
 }
 #header {
 	height:80px;

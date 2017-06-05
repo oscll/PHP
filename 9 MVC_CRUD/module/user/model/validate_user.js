@@ -109,7 +109,6 @@ function validate(){
     var r_plot=v_plot;
     var r_email=validate_email(v_email);
     var r_website=validate_website(v_website);
-    var r_type=validate_type(v_type);
     var r_aficion=validate_aficion(v_aficion);
 
     if(!r_imdbID){

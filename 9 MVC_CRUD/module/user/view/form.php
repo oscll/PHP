@@ -98,6 +98,10 @@
         <option value="Aleman" <?php if($item['idioma']==="Aleman"){echo "selected";} ?> >Aleman</option>
     </select>
     <span id="e_idioma" class="styerror"></span>
+    <?php
+      if ($error_idioma != "")
+            print ("<BR><SPAN CLASS='styerror' color: #ff0000;>" . "* ".$error_idioma . "</SPAN>");
+    ?>
   </p>
   <p>
     <label for="type">Type</label>

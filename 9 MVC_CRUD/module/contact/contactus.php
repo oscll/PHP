@@ -4,5 +4,10 @@ Maecenas libero enim, feugiat non, pretium eu, pellentesque vitae, enim. Fusce v
 </p>
 
 <p>
-Praesent turpis libero, commodo accumsan, lobortis eget, feugiat quis, magna. Morbi gravida libero eu augue. Morbi ac magna. Integer at purus. Cras interdum tellus non velit. Vestibulum sodales nisl sit amet eros. Donec hendrerit dapibus erat! Quisque iaculis, magna vitae lacinia porta, leo dolor dapibus est, a lacinia ipsum odio ac felis! Sed congue porta ante. Sed eleifend lorem at dui. Duis a enim. Donec libero erat, gravida vel, molestie eget, hendrerit quis, turpis? Vestibulum viverra facilisis sapien! Nam nec turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent massa augue, sollicitudin non, tincidunt ut, interdum rhoncus, nisl. Nunc auctor eros nec arcu pellentesque volutpat. Aliquam fringilla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur vitae nibh sed turpis fermentum condimentum!
+  <iframe
+    width="100%"
+    height="450"
+    frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB0PnioxzDTS0EMtuCrzOcytVtoKBaB3Wg&q=Institut+d'Educació+Secundària+Ies+L'Estació" allowfullscreen>
+  </iframe>
 </p>

@@ -1,2 +1,1 @@
-<img src="view/img/404.jpg">
-<a href="index.php">Volver</a>
+  <a href="index.php"><img src="view/img/404.jpg" width="100%"></a>

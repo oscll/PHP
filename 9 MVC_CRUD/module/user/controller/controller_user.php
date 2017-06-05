@@ -9,15 +9,15 @@
             	$rdo = $daouser->select_all_films();
             }catch (Exception $e){
                 $callback = 'index.php?page=503';
-			    die('<script>window.location.href="'.$callback .'";</script>');
+			          die('<script>window.location.href="'.$callback .'";</script>');
             }
 
             if(!$rdo){
-    			$callback = 'index.php?page=503';
-			    die('<script>window.location.href="'.$callback .'";</script>');
-    		}else{
+    			      $callback = 'index.php?page=503';
+			          die('<script>window.location.href="'.$callback .'";</script>');
+    		    }else{
                 include("module/user/view/list_user.php");
-    		}
+    		    }
             break;
 
         case 'create':
