@@ -161,9 +161,13 @@
 
         case 'delete':
             if (isset($_POST['delete'])){
+                print_r ($_POST);
+                die();
                 try{
                     $daouser = new DAOUser();
-                	$rdo = $daouser->delete_film($_GET['id']);
+                    echo "kasdfjsadlkfj";
+                    die();
+                	  $rdo = $daouser->delete_film($_GET['id']);
                 }catch (Exception $e){
                     $callback = 'index.php?page=503';
     			    die('<script>window.location.href="'.$callback .'";</script>');
@@ -181,6 +185,27 @@
 
             include("module/user/view/delete_user.php");
             break;
+        case 'removeall':
+              if (isset($_POST['removeall'])){
+                  try{
+                      $daouser = new DAOUser();
+                      $rdo = $daouser->delete_all();
+                  }catch (Exception $e){
+                      $callback = 'index.php?page=503';
+                die('<script>window.location.href="'.$callback .'";</script>');
+                  }
+
+                if($rdo){
+                echo '<script language="javascript">alert("Borrada la base de datos correctamente")</script>';
+                $callback = 'index.php?page=controller_user&op=list';
+                die('<script>window.location.href="'.$callback .'";</script>');
+              }else{
+                $callback = 'index.php?page=503';
+                die('<script>window.location.href="'.$callback .'";</script>');
+              }
+              }
+              include("module/user/view/delete_all.php");
+              break;
         default;
             include("view/inc/error404.php");
             break;

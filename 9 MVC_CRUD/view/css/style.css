@@ -118,3 +118,54 @@ h1{
 	position:relative;
 	top:1px;
 }
+/*///////////////////////////*/
+th{
+  padding: 10px 10px;
+  background: #00adee;
+  font-size: 15px;
+  text-transform: uppercase;
+  vertical-align: top;
+  color: #1D4A5A;
+  font-weight: normal;
+  text-align: left;
+}
+td{
+  padding: 10px;
+  background: #f2f2f2;
+  font-size: 14px;
+}
+table{
+  width: 100%;
+}
+.add{
+  float: right;
+  background: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-size: 13px;
+  padding: 0;
+  padding: 3px 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.add:hover{
+  background: #ffffff;
+  color: #00adee;
+  text-decoration: none;
+}
+.removeall{
+  float: right;
+  background: #EC5840;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-size: 13px;
+  padding: 0;
+  padding: 3px 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.removeall:hover{
+  background: #ff0000;
+  color: #ffffff;
+  text-decoration: none;
+}
