@@ -1,7 +1,7 @@
 <div class="content-w3ls">
 	<h1 class="header-agileits"><?php echo $submit; ?></h1>
 	<div class="form-w3layouts">
-<form method="post" name="formusers" id="formusers" onsubmit="return true;" action="<?php echo $action ?>"> <!-- return validate();-->
+<form method="post" name="formusers" id="formusers" onsubmit="return validate();" action="<?php echo $action ?>">
   <div class="form-control">
     <label class="header">imdbID</label>
     <input name="imdbID" id="imdbID" type="text" placeholder="imdbID" size="30%" value="<?php echo $item?$item['imdbID']:""; ?>" <?php echo $readonly?"readonly":"" ?>/>

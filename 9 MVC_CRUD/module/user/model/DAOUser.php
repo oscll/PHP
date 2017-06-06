@@ -71,8 +71,8 @@
 		}
 
 		function delete_film($item){
+      $item = preg_replace('/\s+/', '', $item);
 			$sql = "DELETE FROM movies WHERE imdbID='$item'";
-
 			$conexion = connect::con();
             $res = mysqli_query($conexion, $sql);
             connect::close($conexion);

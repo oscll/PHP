@@ -12,12 +12,12 @@
         dateFormat: 'dd/mm/yy',
         changeMonth: true,
         changeYear: true,
-        maxDate: '0Y-18Y',
+        maxDate: '0Y',
         yearRange: '-64Y:'
       });
     });
 	    </script>
 	    <link href="view/css/style.css" rel="stylesheet" type="text/css" />
-	    <script src="module/user/model/validate_user.js"></script>
+	    <script src="module/user/view/validate_user.js"></script>
     </head>
     <body>

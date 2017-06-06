@@ -62,7 +62,6 @@ function validate_website(website) {
     return false;
 }
 function validate_type(texto) {
-  console.log(texto);
     if (texto.length > 0) {
         var regexp = /^([m][o][v][i][e])|([s][e][r][i][e])$/i;
         return regexp.test(texto);

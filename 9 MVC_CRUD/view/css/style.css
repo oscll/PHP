@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css?family=Bubbler+One');
 .error { color: red;
          font-family: arial;
          font-size: 10pt;
@@ -25,9 +25,22 @@ h1{
 }
 #header {
 	height:80px;
-	background-image:url(../img/header.jpg);
+  background: linear-gradient(#e99311, #e0b469);
 	background-repeat:no-repeat;
 	height:120px;
+}
+.divheader{
+  display: inline-block;
+}
+#headerh1 {
+  position: absolute;
+  margin: 0;
+  margin-left: 5%;
+  margin-top: 1%;
+  padding: 0;
+  font-family: 'Bubbler One', sans-serif;
+  width: 55%;
+  font-size: 5em;
 }
 #menu {
 	background-image:url(../img/menu.png);
@@ -251,7 +264,6 @@ ol,ul {
   }
   .content-w3ls {
       width: 85 %;
-      margin: 20px auto 50px;
       background-color: rgba(3, 9, 12, 0.36);
       padding: 55px 50px;
   }
