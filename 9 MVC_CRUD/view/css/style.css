@@ -359,38 +359,7 @@ ol,ul {
   textarea::-ms-input-placeholder {
   color:#c1c1c1!important;
   }
-  /*-- responsive design --*/
-  @media (max-width: 1366px) {
-  .content-w3ls {
-      width: 45%;
-  }
-  .agile-w3ls {
-      padding-left: 326px;
-  }
-  }
-  @media (max-width: 320px) {
-  h1.header-agileits {
-      font-size: 25px;
-      padding-top: 18px;
-      letter-spacing: 5px;
-  }
-  input#imdbID, input#email, input#titulo, input#director, input#actors, input#fecha_lanzamiento, input#website {
-      height: 40px;
-      padding: 0 10px;
-  }
-  .content-w3ls {
-      width: 85%;
-      padding: 16px 16px;
-  }
-  input#imdbID, input#email, input#titulo, input#director, input#actors, input#fecha_lanzamiento, input#website, textarea#plot {
-      width: 91%;
-  	font-size: 14px;
-  }
-  textarea#plot {
-      height: 100px;
-      padding: 10px;
-  }
-  }
+
   [type="submit"] {
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     width: 100%;
